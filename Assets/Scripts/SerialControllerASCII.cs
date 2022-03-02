@@ -60,7 +60,7 @@ public class SerialControllerCustom : MonoBehaviour
 
     // Internal reference to the Thread and the object that runs in it.
     protected Thread thread;
-    protected SerialThreadASCII serialThread;
+    protected SerialThreadLines serialThread;
 
 
     // ------------------------------------------------------------------------
@@ -71,7 +71,7 @@ public class SerialControllerCustom : MonoBehaviour
 
     public void OpenPort()
     {
-        serialThread = new SerialThreadASCII(portName,
+        serialThread = new SerialThreadLines(portName,
             baudRate,
             reconnectionDelay,
             maxUnreadMessages,
@@ -104,12 +104,12 @@ public class SerialControllerCustom : MonoBehaviour
         }
     }
 
-    public string[]  SerialPortsAvailable()
+    public string[] SerialPortsAvailable()
     {
         string[] ports = SerialPort.GetPortNames();
         return ports;
     }
-    
+
 
     // ------------------------------------------------------------------------
     // Invoked whenever the SerialController gameobject is deactivated.
@@ -134,7 +134,7 @@ public class SerialControllerCustom : MonoBehaviour
             return;
 
         // Read the next message from the queue
-        string message = (string) serialThread.ReadMessage();
+        string message = (string)serialThread.ReadMessage();
         if (message == null)
             return;
 
@@ -154,7 +154,7 @@ public class SerialControllerCustom : MonoBehaviour
     public string ReadSerialMessage()
     {
         // Read the next message from the queue
-        return (string) serialThread.ReadMessage();
+        return (string)serialThread.ReadMessage();
     }
 
     // ------------------------------------------------------------------------
