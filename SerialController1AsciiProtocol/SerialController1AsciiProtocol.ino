@@ -1,4 +1,4 @@
-#define SENSOR1 5 // 23 controller 1, 0 controller 2 boton 
+#define SENSOR1 5 // 23 controller 1, 0 controller 2 boton a
 #define SENSOR2 6 // 17 controller 1, 0 controller 2
 #define SENSOR3 7 // 16 controller 1, 0 controller 2
 #define ACTUATOR1 2 // 32 controller, 23 controller 2 Led
